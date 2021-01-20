@@ -1,0 +1,43 @@
+{% extends "banking/layout.html" %}
+{% load static %}
+{% load filters %}
+
+{% block body %}
+
+<h1>Monthly Account Details</h1>
+<div class="account-type">
+    <button class="btn btn-sm btn-outline-info" id="ch-acc">Checking Account</button>
+    <button class="btn btn-sm btn-outline-info" id="sav-acc">Savings Account</button>
+</div>
+<hr>
+<div id="checking-view">
+    <h3>Current Checking Account Balance: <span class="hl">${{ balances.checking }}</span></h3>
+    <br>
+    <h4>Based on your Current Checking Account Balance, below are your future projected account balances* for {{ month_year }}:</h4>
+    <br>
+    {% for i in crange %}
+        <div><strong>On {{ cday|index:i }} {{ month_year }} your checking balance will be: <span class="hl">${{ updated_checking|index:i }}</span></strong></div>
+        <div>{{ cname|index:i }}: ${{ camount|index:i }}</div>
+        <hr>
+    {% endfor %}
+</div>
+<div id="savings-view">
+    <h3>Current Savings Account Balance: <span class="hl">${{ balances.savings }}</span></h3>
+    <br>
+    <h4>Based on your current balance, below are your future projected account balances* for {{ month_year }}:</h4>
+    <br>
+    {% for i in srange %}
+        <div><strong>On {{ sday|index:i }} {{ month_year }} your savings balance will be: <span class="hl">${{ updated_savings|index:i }}</span></strong></div>
+        <div>{{ sname|index:i }}: ${{ samount|index:i }}</div>
+        <hr>
+    {% endfor %}
+</div>
+<hr>
+<small>*Projected balances do not account for future deposits or withdrawls not tracked on your Recurring Bills/Payments Page.</small>
+<div id="details"></div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'banking/details.js' %}"></script>
+{% endblock %}

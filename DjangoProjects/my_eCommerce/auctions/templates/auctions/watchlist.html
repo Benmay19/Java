@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h1>My Watchlist</h1>
+
+    <ol>
+    {% for listing in listings %}
+        <li><a href="{% url 'listing' listing.id %}">{{ listing.title }}</a></li>
+            <ul>
+                <li><strong>About:</strong> {{ listing.description }}</li>
+                <li><strong>Price:</strong> ${{ listing.price }}</li>
+                <li><strong>Condition:</strong> {{ listing.condition }}</li>
+                <li><strong>Category:</strong> {{ listing.category }}</li>
+            </ul>
+    {% if listing.photo %}
+        <img src="{{ listing.photo }}" alt="{{ listing.title }}" width=250><br>
+    {% else %}
+        <img src="https://homestaymatch.com/images/no-image-available.png" alt="{{ listing.title }}" width=250><br>
+    {% endif %}
+    <br>
+    {% endfor %}
+    </ol>
+
+{% endblock %}

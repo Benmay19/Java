@@ -1,0 +1,75 @@
+{% extends "banking/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2>Please select an option:</h2>
+    <button class="btn btn-sm btn-outline-success" id="deposit">Deposit</button>
+    <button class="btn btn-sm btn-outline-danger" id="withdrawl">Withdrawl</button>
+    <button class="btn btn-sm btn-outline-warning" id="transfer">Transfer</button>
+    <hr>
+
+    <div id="deposit-view">
+        <h3 class="green">Deposit</h3>
+        <h5>The current balance in your checking account is <strong class="hl" id="ch-bal">${{ balances.checking }}</strong>.</h5>
+        <h5>The current balance in your savings account is <strong class="hl" id="sav-bal">${{ balances.savings }}</strong>.</h5>
+        <form id="deposit-form">
+            <div class="form-group">
+                <label for="account">Select account:</label>
+                <select name="account" id="account" class="form-control" required>
+                    <option disabled selected value> -- select account -- </option>
+                    <option value="checking">Checking</option>
+                    <option value="savings">Savings</option>
+                </select>
+            </div>
+            <div class="form-group">
+                Amount to Deposit ($): <input type="text" class="form-control" id="amount" placeholder="0.00" required>
+            </div>
+            <input type="submit" class="btn btn-success" id="submit" value="Deposit" onclick="update_balance('deposit')">
+        </form>
+    </div>
+
+    <div id="withdrawl-view">
+        <h3 class="red">Withdrawl</h3>
+        <h5>The current balance in your checking account is <strong class="hl" id="ch-w">${{ balances.checking }}</strong>.</h5>
+        <h5>The current balance in your savings account is <strong class="hl" id="sav-w">${{ balances.savings }}</strong>.</h5>
+        <form id="withdrawl-form">
+            <div class="form-group">
+                <label for="account">Select account:</label>
+                <select name="account" id="waccount" class="form-control" required>
+                    <option disabled selected value> -- select account -- </option>
+                    <option value="checking">Checking</option>
+                    <option value="savings">Savings</option>
+                </select>
+            </div>
+            <div class="form-group">
+                Amount to Withdrawl ($): <input type="text" class="form-control" id="wamount" placeholder="0.00" required>
+            </div>
+            <input type="submit" class="btn btn-danger" id="submit" value="Withdrawl" onclick="update_balance('withdrawl')">
+        </form>
+    </div>
+
+    <div id="transfer-view">
+        <h3 class="yellow">Transfer</h3>
+        <h5>The current balance in your checking account is <strong class="hl" id="ch-t">${{ balances.checking }}</strong>.</h5>
+        <h5>The current balance in your savings account is <strong class="hl" id="sav-t">${{ balances.savings }}</strong>.</h5>
+        <form id="transfer-form">
+            <div class="form-group">
+                <label for="account">Select transfer option:</label>
+                <select name="account" id="taccount" class="form-control" required>
+                    <option disabled selected value> -- select option -- </option>
+                    <option value="ctos">Checking to Savings</option>
+                    <option value="stoc">Savings to Checking</option>
+                </select>
+            </div>
+            <div class="form-group">
+                Amount to Transfer ($): <input type="text" class="form-control" id="tamount" placeholder="0.00" required>
+            </div>
+            <input type="submit" class="btn btn-warning" id="submit" value="Transfer" onclick="update_balance('transfer')">
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'banking/balances.js' %}"></script>
+{% endblock %}

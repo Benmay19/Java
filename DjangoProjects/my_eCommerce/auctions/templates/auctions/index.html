@@ -1,0 +1,27 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+    {% for auction in auctions %}
+    {% if not auction.closed %}
+        
+        <ul>
+            <li style="font-size: x-large;"><a href="{% url 'listing' auction.id %}">{{ auction.title }}</a></li>
+                <ul>
+                    <li><strong>Description:</strong> {{ auction.description }}</li>
+                    <li><strong>Current Price:</strong> ${{ auction.price }}</li>
+                    <li><strong>Condition:</strong> {{ auction.condition }}</li>
+                    <li><strong>Category:</strong> {{ auction.category }}</li>
+                </ul>
+        </ul>
+        {% if auction.photo %}
+            <img src="{{ auction.photo }}" alt="{{ auction.title }}" width=250><br>
+        {% else %}
+            <img src="https://homestaymatch.com/images/no-image-available.png" alt="{{ auction.title }}" width=250><br>
+        {% endif %}
+        <hr>
+    {% endif %}
+    {% endfor %}
+
+{% endblock %}
