@@ -1,0 +1,25 @@
+Ancient Egypt Museum,History,5
+Fine Arts Museum,Art,4
+Hiking Trails,Parks/Outdoor,5
+Dinosaur Bone Museum,History,4
+Sculpture Museum,Art,3
+Hockey Hall of Fame,Sports,3
+State Park,Parks/Outdoor,3
+Steam Power Museum,Science/Technology,2
+Basketball Hall of Fame,Sports,2
+Aerospace Museum,Science/Technology,4
+Museum of Modern Art,Art,4
+Civil War Reenactment,History,5
+American History Museum,History,4
+Natural History Museum,History,5
+History of Farming Museum,History,2
+Football Hall of Fame,Sports,4
+Cave Tours,Parks/Outdoor,4
+Computer Museum,Science/Technology,4
+Museum of Science and Industry,Science/Technology,5
+Opera,Art,2
+Colonial America Experience,History,4
+National Park,Parks/Outdoor,5
+NASA,Science/Technology,5
+Baseball Hall of Fame,Sports,5
+Bird Watching,Parks/Outdoor,3
