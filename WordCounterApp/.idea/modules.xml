@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MavMod/MavMod.iml" filepath="$PROJECT_DIR$/MavMod/MavMod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WordCounterApp.iml" filepath="$PROJECT_DIR$/WordCounterApp.iml" />
+    </modules>
+  </component>
+</project>
